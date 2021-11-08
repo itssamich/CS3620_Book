@@ -1,3 +1,23 @@
+<nav>
+    <form action='' method="GET">
+        <input type="search" placeholder="Search for a Book..." name ="bookName">
+        <button type="submit">Search</button>
+    </form>
+</nav>
+
 {% for book in bookObject %}
     {{ book.bookTitle }}
+    <br>
 {% endfor %}
+
+{% if bookObject.has_previous %}
+    <a href='?page=1'>First</a>
+    <a href='?page={{ bookObject.previous_page_number }}'>Previous</a>
+{% endif %}
+
+Page: {{ bookObject.number}} of {{ bookObject.paginator.num_pages }}
+
+{% if bookObject.has_next %}
+    <a href='?page={{ bookObject.next_page_number }}'>Next</a>
+    <a href='?page={{ bookObject.paginator.num_pages }}'>Last</a>
+{% endif %}
