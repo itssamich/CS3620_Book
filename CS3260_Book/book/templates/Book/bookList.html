@@ -1,12 +1,10 @@
-<nav>
-    <form action='' method="GET">
-        <input type="search" placeholder="Search for a Book..." name ="bookName">
-        <button type="submit">Search</button>
-    </form>
-</nav>
+{% extends 'Book/base.html'%}
+
+{% block body %}
+
 
 {% for book in bookObject %}
-    {{ book.bookTitle }}
+    <img src="{{ book.bookImage }}">
     <br>
 {% endfor %}
 
@@ -21,3 +19,4 @@ Page: {{ bookObject.number}} of {{ bookObject.paginator.num_pages }}
     <a href='?page={{ bookObject.next_page_number }}'>Next</a>
     <a href='?page={{ bookObject.paginator.num_pages }}'>Last</a>
 {% endif %}
+{% endblock %}
