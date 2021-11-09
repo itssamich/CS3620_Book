@@ -3,33 +3,32 @@
 {% block body %}
 
 
-{% for book in bookObject %}
-    <div class="bookItem">
-        <a href="{% url 'book:detail' book.id%}" class="bookLink">
-            <div class="bookImage">
-                <img src="{{ book.bookImage }}" height=200 width=150}}>
-            </div>
+<div class="bookListBody">
+    {% for book in bookObject %}
+        <div class="bookItem">
+            <a href="{% url 'book:detail' book.id%}" class="bookLink">
+                <div class="bookImage">
+                    <img src="{{ book.bookImage }}" height=200 width=150}}>
+                </div>
 
-            <div class "bookTitle">
-                <span>
-                    {{ book.bookTitle }}
-                </span>
-            </div>
-        </a>
-    </div>
-{% endfor %}
-
-<div class="pagination">
-    {% if bookObject.has_previous %}
-        <a href='?page=1'>First</a>
-        <a href='?page={{ bookObject.previous_page_number }}'>Previous</a>
-    {% endif %}
-
-    Page: {{ bookObject.number}} of {{ bookObject.paginator.num_pages }}
-
-    {% if bookObject.has_next %}
-        <a href='?page={{ bookObject.next_page_number }}'>Next</a>
-        <a href='?page={{ bookObject.paginator.num_pages }}'>Last</a>
-    {% endif %}
+                <div class "bookTitle">
+                    <span>
+                        {{ book.bookTitle }}
+                    </span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
 </div>
+{% if bookObject.has_previous %}
+    <a href='?page=1'>First</a>
+    <a href='?page={{ bookObject.previous_page_number }}'>Previous</a>
+{% endif %}
+
+Page: {{ bookObject.number}} of {{ bookObject.paginator.num_pages }}
+
+{% if bookObject.has_next %}
+    <a href='?page={{ bookObject.next_page_number }}'>Next</a>
+    <a href='?page={{ bookObject.paginator.num_pages }}'>Last</a>
+{% endif %}
 {% endblock %}
