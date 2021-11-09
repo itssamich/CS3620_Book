@@ -4,8 +4,12 @@
 
 
 {% for book in bookObject %}
-    <img src="{{ book.bookImage }}">
-    <br>
+    <div class="bookItem">
+        <img src="{{ book.bookImage }}" height=200 width=150}}">
+        <br>
+        {{ book.bookTitle }}
+        <br>
+    </div>
 {% endfor %}
 
 {% if bookObject.has_previous %}

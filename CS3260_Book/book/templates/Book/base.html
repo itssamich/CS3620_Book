@@ -11,11 +11,13 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a href="{%  url 'index' %}" class="navbar-brand fas fa-home" ></a>
+        <a href="{%  url 'index' %}" class="navbar-brand fas fa-home" title="Return to home page"></a>
         <form action='' method="GET">
             <input type="search" placeholder="Search for a Book..." name ="bookName">
             <button type="submit">Search</button>
         </form>
+        <a href="{%  url 'book:bookList' %}" class="navbar-brand fas fa-book" title="View full book list"></a>
+
     </nav>
     {% block body %}
     

@@ -1,1 +1,9 @@
-TO DO: Add form to add books
+{% extends 'Book/base.html'%}
+
+{% block body %}
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">Save Book</button>
+</form>
+{% endblock %}

@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import BookData
+from .forms import bookForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 
@@ -20,4 +21,10 @@ def index(request):
     return render(request, 'Book/index.html', {})
 
 def addBook(request):
-    return render(request, 'Book/addBook.html', {})
+    form = bookForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        return redirect('index')
+    
+    return render(request, 'Book/addBook.html', {'form' :form})
