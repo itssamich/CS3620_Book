@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="stylesheet" href="{% static 'hobby/style.css' %}">
+    <link rel="stylesheet" href="{% static 'book/style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
@@ -11,12 +11,25 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <a href="{%  url 'index' %}" class="navbar-brand fas fa-home" title="Return to home page"></a>
-        <form action='' method="GET">
-            <input type="search" placeholder="Search for a Book..." name ="bookName">
-            <button type="submit">Search</button>
+        <div class="itemContainer">
+            <a href="{%  url 'index' %}" class="navbar-brand btn" title="Return to home page">
+                <i class="fa fa-home"></i>
+            </a>
+            <a href="{%  url 'book:bookList' %}" class="navbar-brand btn" title="View full book list">
+                <i class=" fas fa-book"></i>
+            </a>
+            <a href="{%  url 'book:addBook' %}" class="navbar-brand btn" title="Add a book to the list">
+                <i class=" fas fa-plus"></i>
+            </a>
+        </div>
+
+        
+        <form action='' method="GET" class="d-flex">
+            <input type="search" placeholder="Search for a Book..." name ="bookName" class="form-control me-2">
+            <button type="submit" class="btn btn-outline-secondary">Search</button>
         </form>
-        <a href="{%  url 'book:bookList' %}" class="navbar-brand fas fa-book" title="View full book list"></a>
+
+
 
     </nav>
     {% block body %}

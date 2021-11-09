@@ -1,0 +1,23 @@
+{% extends 'Book/base.html'%}
+
+{% block body %}
+   <div class='detailTitle'>
+        <h1>{{book.bookTitle}}</h1>
+   </div>
+    <div class='detailAuthor'>
+        <h3>{{book.bookAuthor}}<h3>
+   </div>
+    <div class='detailCategory'>
+        {{book.bookCategory}}
+   </div>
+    <div class='detailDescription'>
+        {{book.bookDescription}}
+   </div>
+    <div class='detailRating'>
+        {{book.bookRating}}
+   </div>
+    <div class='detailImage'>
+        <img src="{{ book.bookImage }}" height=200 width=150}}>
+   </div>
+
+{% endblock %}

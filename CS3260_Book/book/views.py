@@ -20,6 +20,12 @@ def bookList(request):
 def index(request):
     return render(request, 'Book/index.html', {})
 
+def detail(request, bookId):
+    book = BookData.objects.get(pk=bookId)
+
+    return render(request, 'Book/detail.html', {'book':book})
+
+
 def addBook(request):
     form = bookForm(request.POST, request.FILES)
 

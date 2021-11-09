@@ -1,0 +1,32 @@
+.navbar-brand{
+    font-size: 1.6rem !important;
+    margin-right: 2rem !important;
+}
+
+.bookLink{
+    text-decoration: none !important;
+    color: black !important;
+}
+
+.detailCategory{
+    text-decoration: underline;
+}
+
+.btn:hover{
+    color: grey !important;
+}
+
+.bookTitle span{
+    text-align: center;
+    font-weight: bold;
+}
+
+.bookImage{
+    display: inline-block;
+}
+
+.bookItem{
+    display: inline-block;
+    border: 1px solid black !important;
+    max-width: 160px;
+}
