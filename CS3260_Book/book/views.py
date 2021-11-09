@@ -11,6 +11,7 @@ def bookList(request):
     if(bookName != '' and bookName is not None):
         bookObject = BookData.objects.filter(bookTitle__icontains=bookName)
 
+    
     paginator = Paginator(bookObject, 10)
     page = request.GET.get('page')
     bookObject = paginator.get_page(page)
@@ -22,7 +23,7 @@ def index(request):
 
 def detail(request, bookId):
     book = BookData.objects.get(pk=bookId)
-
+    
     return render(request, 'Book/detail.html', {'book':book})
 
 
