@@ -5,11 +5,11 @@ class bookForm(forms.ModelForm):
     class Meta:
         model = BookData
         fields = ['bookTitle', 'bookAuthor', 'bookCategory', 'bookDescription', 'bookRating', 'bookImage']
-        labels = [
-            'Title: ',
-            'Author: ',
-            'Genre(s): ',
-            'Description: ',
-            'Rating(?/5): ',
-            'Cover Art: ',
-        ]
+        labels = {
+            'bookTitle': 'Title',
+            'bookAuthor': 'Author',
+            'bookCategory': 'Genre(s)',
+            'bookDescription': 'Description',
+            'bookRating': 'Rating(?/5)',
+            'bookImage': 'Cover Art',
+        }

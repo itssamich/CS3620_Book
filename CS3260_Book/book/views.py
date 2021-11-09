@@ -21,7 +21,7 @@ def index(request):
     return render(request, 'Book/index.html', {})
 
 def addBook(request):
-    form = bookForm(request.POST or None)
+    form = bookForm(request.POST, request.FILES)
 
     if form.is_valid():
         form.save()

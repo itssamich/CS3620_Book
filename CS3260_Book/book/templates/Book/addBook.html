@@ -1,9 +1,9 @@
 {% extends 'Book/base.html'%}
 
 {% block body %}
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form }}
+    {{ form.as_p }}
     <button type="submit">Save Book</button>
 </form>
 {% endblock %}
